@@ -19,7 +19,7 @@ import java.util.Calendar;
  * 折线图
  * tlp
  * 2020.3.27
- * 1.模仿支付宝 统计折线图.
+ * 1. 模仿支付宝 统计折线图.
  * 2. Y轴数 模仿极客时间
  */
 public class LineChart extends View {
@@ -250,7 +250,7 @@ public class LineChart extends View {
         canvas.translate(xCoordinateOffset, yCoordinateOffset);
 
         // x 轴坐标线
-        canvas.drawLine(-xCoordinateOffset, chatViewHeight, chatViewWidth, chatViewHeight, yLinePaint);
+        canvas.drawLine(-xCoordinateOffset, chatViewHeight, chatViewWidth + 30, chatViewHeight, yLinePaint);
 
         // 绘制x轴 刻度
         for (int i = 0; i < mXItems.length; i++) {
@@ -263,8 +263,9 @@ public class LineChart extends View {
         // 绘制Y轴 刻度
         for (int i = 0; i < y_horizontalSpacing; i++) {
             float Y = chatViewHeight - y_scale * values[i];
-            canvas.drawLine(-xCoordinateOffset, Y, chatViewWidth, Y, yLinePaint);
-            canvas.drawText(values[i] + "", chatViewWidth - 100, Y + 25, mDatePaint);
+            float textWidth = mPointPaint.measureText(values[i] + "");
+            canvas.drawLine(-xCoordinateOffset, Y, chatViewWidth + 30, Y, yLinePaint);
+            canvas.drawText(values[i] + "", x_scale * mXItems[mXItems.length - 1] + textWidth / 2, Y + 25, mDatePaint);
         }
         PointF previousPoint = null;
 

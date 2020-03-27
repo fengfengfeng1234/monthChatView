@@ -39,9 +39,12 @@ public class MainActivity extends AppCompatActivity {
      */
 
     private int[] mWeekPoints = new int[]
-            {0, 0, 0, 0, 0,0,
+            {0, 0, 0, 0, 0,
                     7, 34, 1, 4, 0,
                     7, 2, 1, 4, 0,
+                    7, 2, 1, 4, 0,
+                    7, 2, 1, 4, 0,
+                    7, 2, 1, 4, 18,
             };
 
 
